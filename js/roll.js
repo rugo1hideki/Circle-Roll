@@ -1,6 +1,6 @@
   // create an initial array
   x = 100;
-  let myArray = ["1. Броколі","2. Кукурудза", "3. Цвітна капуста", "4. Артишок", "5. Каперси", "6. Горох", "7. Боби", "8. Шпинат", "9.Порей", "10. Соя", "11. Люцерна", "12. Кабачок"];
+  
   let y;
   function shuffle(array) {
     let currentIndex = array.length,
@@ -74,26 +74,41 @@
       clearInterval(intervalId);
     }, y);
   }
-  function sleep(ms) {
-    return new Promise(
-      resolve => setTimeout(resolve, ms)
-    );
+  
+
+
+
+  function End() {
+    
+    let currentDiv = document.getElementById("current");
+    currentDiv.classList.remove("v2_14");
+    currentDiv.classList.add("Winner");
+        const songIndex = Math.floor(Math.random() * songs.length);
+        const audio = new Audio(songs[songIndex]);
+        audio.play();
+   
   }
-  
-  
+
+
 
   
   
   function Rolling() {
+
+    let currentDiv = document.getElementById("current");
+    currentDiv.classList.remove("Winner");
+    currentDiv.classList.add("v2_14");
     shuffle(myArray);
     
     
    
     Roll(0, 10, 10,10000);
     Roll(0, 12, 300,12000);
+    Roll(0, 14, 600,14000);
     Roll(0, 15, 800,15000);
     Roll(0, 18, 1000,18000);
     playRandomVideo()
+    setTimeout(End, 19000);
   };
   
   let currentVideo = null;
@@ -104,7 +119,7 @@
       currentVideo.remove();
     }
   
-    const videos = ["video/01.mp4","video/02.mp4",]; // replace with the names of your local videos
+  
     const videoIndex = Math.floor(Math.random() * videos.length);
     const video = document.createElement("video");
     video.src = videos[videoIndex];

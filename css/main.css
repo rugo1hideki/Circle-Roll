@@ -12,6 +12,16 @@
   width: 800px;
   height: 360px;
 }
+.Winner{
+  font-size: 40px;
+  color: rgba(255,255,255,1);
+position: absolute;
+top: 450px;
+left: 342px;
+font-family: Inter;
+opacity: 1;
+}
+
 
 .b1{
   position: absolute;
