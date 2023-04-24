@@ -1,1 +1,0 @@
-const videos = ["video/01.mp4","video/02.mp4",]; // replace with the names of your local videos
