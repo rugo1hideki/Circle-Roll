@@ -1,0 +1,1 @@
+const songs = ["audio/01.wav", ]; // replace with the names of your local songs
