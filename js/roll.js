@@ -33,7 +33,6 @@
     
     
     // get the elements where the array and its surrounding elements will be displayed
-    let arrayDiv = document.getElementById("array");
     let lessmDiv = document.getElementById("less-");
     let lessDiv = document.getElementById("less");
     let currentDiv = document.getElementById("current");
@@ -102,12 +101,12 @@
     
    
     Roll(0, 10, 10,10000);
-    Roll(0, 12, 300,12000);
-    Roll(0, 14, 600,14000);
-    Roll(0, 15, 800,15000);
-    Roll(0, 18, 1000,18000);
+    Roll(0, 14, 300,12000);
+    Roll(0, 16, 600,14000);
+    Roll(0, 20, 800,18000);
+    Roll(0, 22, 1000,23000);
     playRandomVideo()
-    setTimeout(End, 19000);
+    setTimeout(End, 25000);
   };
   
   let currentVideo = null;
