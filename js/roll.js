@@ -17,6 +17,10 @@
         array[randomIndex],
         array[currentIndex],
       ];
+
+
+      let video_container_Div = document.getElementById("video-container");
+      video_container_Div.style.opacity = 100;
     }
 
     return array;
@@ -73,18 +77,29 @@
     }, y);
   }
   
-
-
-
-  function End() {
-    
+  function End() { 
     let currentDiv = document.getElementById("current");
+    let video_container_Div = document.getElementById("video-container");
     currentDiv.classList.remove("v2_14");
     currentDiv.classList.add("Winner");
         const songIndex = Math.floor(Math.random() * songs.length);
         const audio = new Audio(songs[songIndex]);
         audio.play();
-   
+          let opacity = 1;
+          const interval = 10; // in milliseconds
+          const steps = 500 / interval;
+          let count = 0;
+          
+          const fade = setInterval(() => {
+            opacity -= 1 / steps;
+            video_container_Div.style.opacity = opacity;
+            count++;
+            
+            if (count === steps) {
+              clearInterval(fade);
+              video_container_Div.style.opacity = 0;
+            }
+          }, interval);
   }
 
 
@@ -117,7 +132,6 @@
       currentVideo.remove();
     }
   
-  
     const videoIndex = Math.floor(Math.random() * videos.length);
     const video = document.createElement("video");
     video.src = videos[videoIndex];
@@ -126,7 +140,6 @@
     video.classList.add("video")
     document.getElementById("video-container").appendChild(video);
     
-  
     // save the current video element
     currentVideo = video;
   }
