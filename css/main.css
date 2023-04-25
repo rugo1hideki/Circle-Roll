@@ -3,13 +3,13 @@
 }
 
 #video-container {
-width: 1300px;
+width: 1200px;
 height: 950px;
   overflow: hidden;
   background: radial-gradient(closest-side, transparent 60%, rgba(51,44,44,1));
 }
 .video{
-  width: 1300px;
+  width: 1200px;
   height: 950px;
   object-fit: cover;
   border-radius: 50%;
@@ -175,9 +175,10 @@ body {
 
 }
 .v2_22 {
-  width: 711px;
+  width: 700px;
   height: 460px;
   position: absolute;
 top: 0px;
-left: 600px;
+left: 700px;
+z-index: -1;
 }
