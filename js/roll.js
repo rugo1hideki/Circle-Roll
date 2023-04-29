@@ -17,6 +17,12 @@
         array[randomIndex],
         array[currentIndex],
       ];
+
+
+      let video_container_Div = document.getElementById("video-container");
+      video_container_Div.style.opacity = 100;
+      let gif_container_Div = document.getElementById("gif-container");
+      gif_container_Div.style.opacity = 100;
     }
 
     return array;
@@ -73,18 +79,32 @@
     }, y);
   }
   
-
-
-
-  function End() {
-    
+  function End() { 
     let currentDiv = document.getElementById("current");
+    let video_container_Div = document.getElementById("video-container");
+    let gif_container_Div = document.getElementById("gif-container");
     currentDiv.classList.remove("v2_14");
     currentDiv.classList.add("Winner");
         const songIndex = Math.floor(Math.random() * songs.length);
         const audio = new Audio(songs[songIndex]);
         audio.play();
-   
+          let opacity = 1;
+          const interval = 10; // in milliseconds
+          const steps = 500 / interval;
+          let count = 0;
+          
+          const fade = setInterval(() => {
+            opacity -= 1 / steps;
+            video_container_Div.style.opacity = opacity;
+            gif_container_Div.style.opacity = opacity;
+            count++;
+            
+            if (count === steps) {
+              clearInterval(fade);
+              video_container_Div.style.opacity = 0;
+              gif_container_Div.style.opacity = 0;
+            }
+          }, interval);
   }
 
 
@@ -104,19 +124,20 @@
     Roll(0, 14, 300,12000);
     Roll(0, 16, 600,14000);
     Roll(0, 20, 800,18000);
-    Roll(0, 22, 1000,23000);
+    Roll(0, 22, 1000,24000);
     playRandomVideo()
+    playRandomGif()
     setTimeout(End, 25000);
   };
   
   let currentVideo = null;
+  let currentGif = null;
   
   function playRandomVideo() {
     // if a video is already playing, delete it
     if (currentVideo) {
       currentVideo.remove();
     }
-  
   
     const videoIndex = Math.floor(Math.random() * videos.length);
     const video = document.createElement("video");
@@ -126,8 +147,19 @@
     video.classList.add("video")
     document.getElementById("video-container").appendChild(video);
     
-  
     // save the current video element
     currentVideo = video;
+  }
+  function playRandomGif() {
+    if (currentGif) {
+      currentGif.remove();
+    }
+    const gifIndex = Math.floor(Math.random() * gifs.length);
+    const gif = document.createElement("img");
+    gif.src = gifs[gifIndex];
+    gif.classList.add("gif")
+    document.getElementById("gif-container").appendChild(gif);
+
+    currentGif = gif;
   }
   

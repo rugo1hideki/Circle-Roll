@@ -1,0 +1,1 @@
+const gifs = ["gifs/01.gif","gifs/02.gif", ]; // replace with the names of your local gifs
